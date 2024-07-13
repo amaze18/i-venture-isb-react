@@ -1,0 +1,11 @@
+llama-index
+streamlit 
+openai
+pandas
+boto3
+rouge
+nltk
+span-marker
+rank_bm25
+Pygithub
+

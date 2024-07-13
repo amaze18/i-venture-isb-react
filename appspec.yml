@@ -1,0 +1,32 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/codedeploy-agent/deployment-root/
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  ApplicationStop:
+    - location: scripts/application_stop.sh
+      runas: ubuntu
+  DownloadBundle:
+    - location: scripts/download_bundle.sh
+      runas: ubuntu
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      runas: ubuntu
+  Install:
+    - location: scripts/install.sh
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/after_install.sh
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/application_start.sh
+      runas: ubuntu
+  ValidateService:
+    - location: scripts/validate_service.sh
+      runas: ubuntu
